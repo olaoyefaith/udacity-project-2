@@ -31,16 +31,18 @@ import { Request, Response } from "express";
     let filteredImage = await filterImageFromURL(image_url);
 
   //    send the resulting file in the response
-  //    deletes any files on the server on finish of the response
+
 
     res.status(200).sendFile(filteredImage, () => {
+
+       //    deletes any files on the server on finish of the response
       return deleteLocalFiles([filteredImage]);
     });
   
   });
    
   // QUERY PARAMATERS
-  //    image_url: URL of a publicly accessible image
+ n //    image_url: URL of a publicly accessible image
   // RETURNS
   //   the filtered image file [!!TIP res.sendFile(filteredpath); might be useful]
 
