@@ -19,7 +19,7 @@ import { Request, Response } from "express";
   app.get('/filteredimage', async (req: Request, res: Response) => {
 
  // endpoint to filter an image from a public url.
-    let image_url = req.query.image_url.toString();
+    let image_url :string = req.query.image_url
 
 //   validate the image_url query
     if (!image_url) {
@@ -28,7 +28,7 @@ import { Request, Response } from "express";
 
     //  call filterImageFromURL(image_url) to filter the image
 
-    let filteredImage = await filterImageFromURL(image_url);
+    let filteredImage :string = await filterImageFromURL(image_url);
 
   //    send the resulting file in the response
 
@@ -37,12 +37,12 @@ import { Request, Response } from "express";
 
        //    deletes any files on the server on finish of the response
       return deleteLocalFiles([filteredImage]);
-    });
+   });
   
   });
    
   // QUERY PARAMATERS
- n //    image_url: URL of a publicly accessible image
+//    image_url: URL of a publicly accessible image
   // RETURNS
   //   the filtered image file [!!TIP res.sendFile(filteredpath); might be useful]
 
